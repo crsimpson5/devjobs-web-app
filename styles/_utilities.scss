@@ -1,0 +1,50 @@
+@use "variables" as *;
+
+.color {
+  @include color-modifiers("color");
+}
+
+.bg-color {
+  @include color-modifiers("background-color");
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.container {
+  --padding: clamp(1.5rem, 5vw, 2.5rem);
+
+  width: min(69.375rem, 100% - var(--padding) * 2);
+  margin-inline: auto;
+}
+
+// Headings
+
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.heading-1 {
+  font-size: 1.75rem;
+}
+.heading-2 {
+  font-size: 1.5rem;
+}
+.heading-3 {
+  font-size: 1.25rem;
+}
+.heading-4 {
+  font-size: 0.875rem;
+  line-height: 1.3;
+}

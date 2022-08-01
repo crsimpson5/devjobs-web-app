@@ -1,0 +1,14 @@
+@use "variables" as *;
+
+:root {
+  @each $name, $hsl in $colors {
+    --#{$name}: #{$hsl};
+  }
+}
+
+body {
+  background-color: #222;
+  color: #eee;
+  font-family: "Kumbh Sans", system-ui, sans-serif;
+  // color: var(--gray-800);
+}
