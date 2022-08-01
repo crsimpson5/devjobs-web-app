@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 
+import Card from "../components/Card";
+import data from "../data.json";
+
 export default function Home() {
   return (
     <>
@@ -9,7 +12,7 @@ export default function Home() {
         <meta name="description" content="Search for developer jobs" />
       </Head>
 
-      <header class="main-header">
+      <header className="main-header">
         <div className="container">
           <Link href="#">
             <a>
@@ -18,6 +21,10 @@ export default function Home() {
           </Link>
         </div>
       </header>
+
+      {data.map((job) => (
+        <Card data={job} />
+      ))}
 
       {/* <main
         className=""

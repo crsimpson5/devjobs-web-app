@@ -117,3 +117,29 @@
 .logo {
   padding-block: 0.5rem;
 }
+
+// Card
+
+.card {
+  position: relative;
+  background-color: var(--gray-100);
+  border-radius: 0.375rem;
+  padding: 2rem;
+  padding-top: 3rem;
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    width: 3.125rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 0.9375rem;
+    background-color: var(--bg, black);
+  }
+
+  &__location {
+    margin-top: 2rem;
+  }
+}

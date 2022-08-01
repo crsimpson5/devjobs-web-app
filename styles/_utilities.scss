@@ -25,26 +25,31 @@
   margin-inline: auto;
 }
 
+.flow > * + * {
+  margin-top: var(--flow-spacing, 1em);
+}
+
+.bold {
+  font-weight: bold;
+}
+
 // Headings
 
 .heading-1,
 .heading-2,
-.heading-3,
-.heading-4 {
+.heading-3 {
   font-weight: bold;
   line-height: 1.2;
+  color: var(--gray-800);
 }
 
 .heading-1 {
   font-size: 1.75rem;
 }
 .heading-2 {
-  font-size: 1.5rem;
-}
-.heading-3 {
   font-size: 1.25rem;
 }
-.heading-4 {
+.heading-3 {
   font-size: 0.875rem;
   line-height: 1.3;
 }
