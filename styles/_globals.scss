@@ -7,8 +7,12 @@
 }
 
 body {
-  background-color: #222;
+  --body-color: var(--gray-500);
+  --body-bg: var(--gray-200);
+  --foreground: var(--gray-100);
+
+  background-color: var(--body-bg);
   color: #eee;
   font-family: "Kumbh Sans", system-ui, sans-serif;
-  color: var(--gray-500);
+  color: var(--body-color);
 }
