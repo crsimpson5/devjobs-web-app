@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Card from "../components/Card";
+import Header from "../components/Header";
+
 import data from "../data.json";
 
 export default function Home() {
@@ -12,69 +14,51 @@ export default function Home() {
         <meta name="description" content="Search for developer jobs" />
       </Head>
 
-      <header className="main-header">
-        <div className="container">
-          <Link href="#">
-            <a>
-              <img className="logo" src="images/icons/logo.svg" alt="" />
-            </a>
-          </Link>
-        </div>
-      </header>
+      <Header />
 
-      {data.map((job) => (
-        <Card data={job} />
-      ))}
-
-      {/* <main
-        className=""
-        style={{
-          padding: "2rem",
-          display: "grid",
-          placeItems: "start",
-          gap: "2rem"
-        }}
-      >
-        <button className="button">Button</button>
-        <input
-          class="text-input"
-          type="text"
-          placeholder="Enter desired job…"
-          data-icon="search"
-        />
-        <div className="checkbox">
-          <input type="checkbox" name="test" id="test" />
-          <label htmlFor="test">Checkbox</label>
-        </div>
-
-        <div className="input-wrapper">
+      <main>
+        <div className="input-wrapper | container">
           <div>
             <label htmlFor="" className="visually-hidden">
-              desired job
+              Filter by title, companies, expertise
             </label>
             <input
-              class="text-input"
+              className="text-input"
               type="text"
-              placeholder="Enter desired job…"
+              placeholder="Filter by title, companies, expertise…"
               data-icon="search"
             />
           </div>
           <div>
             <label htmlFor="" className="visually-hidden">
-              desired job
+              Filter by location
             </label>
             <input
-              class="text-input"
+              className="text-input"
               type="text"
-              placeholder="Enter desired job…"
+              placeholder="Filter by location…"
               data-icon="location"
             />
           </div>
+          <div className="input-wrapper__options">
+            <div className="checkbox">
+              <input
+                type="checkbox"
+                name="full-time-only"
+                id="full-time-only"
+              />
+              <label htmlFor="full-time-only">Full Time Only</label>
+            </div>
+            <button className="button">Search</button>
+          </div>
         </div>
-        <p>
-          hi <span className="dot-separator"></span> there
-        </p>
-      </main> */}
+
+        <div className="card-grid | container">
+          {data.map((job) => (
+            <Card data={job} key={job.id} />
+          ))}
+        </div>
+      </main>
     </>
   );
 }
