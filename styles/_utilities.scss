@@ -1,11 +1,18 @@
 @use "variables" as *;
 
-.color {
-  @include color-modifiers("color");
-}
+// .color {
+//   @include color-modifiers("color");
+// }
 
-.bg-color {
-  @include color-modifiers("background-color");
+// .bg-color {
+//   @include color-modifiers("background-color");
+// }
+
+.color-primary {
+  color: var(--primary-color);
+}
+.color-light {
+  color: var(--color-light);
 }
 
 .visually-hidden {
@@ -16,6 +23,13 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.container-md {
+  --padding: clamp(1.5rem, 5vw, 2.5rem);
+
+  width: min(45.625rem, 100% - var(--padding) * 2);
+  margin-inline: auto;
 }
 
 .container {
@@ -40,7 +54,7 @@
 .heading-3 {
   font-weight: bold;
   line-height: 1.2;
-  color: var(--gray-800);
+  color: var(--body-color);
 }
 
 .heading-1 {

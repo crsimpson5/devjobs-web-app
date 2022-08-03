@@ -27,17 +27,29 @@ export default function Job() {
 
       {job ? (
         <>
-          <header className="container">
-            <p>{job.company}</p>
+          <header className="job__header | container-md">
+            <div
+              className="job__logo"
+              style={{ background: job.logoBackground }}
+            >
+              <img src={`.${job.logo}`} alt="" />
+            </div>
+            <div className="flow" style={{ "--flow-spacing": ".25em" }}>
+              <p className="heading-2">{job.company}</p>
+              <p className="color-light">
+                {job.company.split(" ").join("").toLowerCase() + ".com"}
+              </p>
+            </div>
+            <a href="#" className="button" data-type="light">Company Site</a>
           </header>
 
-          <main className="container">
-            <p>
+          <main className="container-md color-light">
+            <p className="color-light">
               {job.postedAt}{" "}
               <span className="dot-separator"> {job.contract}</span>
             </p>
             <h1 className="heading-1">{job.position}</h1>
-            <p class="color-primary bold">{job.location}</p>
+            <p className="color-primary bold">{job.location}</p>
             <button className="button">Apply Now</button>
 
             <div className="flow">
@@ -45,22 +57,22 @@ export default function Job() {
               <h2 className="heading-2">Requirements</h2>
               <p>{job.requirements.content}</p>
               <ul>
-                {job.requirements.items.map((item) => (
-                  <li>{item}</li>
+                {job.requirements.items.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
               </ul>
               <h2 className="heading-2">What You Will Do</h2>
               <p>{job.role.content}</p>
               <ol>
-                {job.role.items.map((item) => (
-                  <li>{item}</li>
+                {job.role.items.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
               </ol>
             </div>
           </main>
 
           <footer>
-            <div className="container">
+            <div className="container-md">
               <p className="heading-2">{job.position}</p>
               <p>{job.company}</p>
               <button className="button">Apply Now</button>

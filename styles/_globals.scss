@@ -7,12 +7,54 @@
 }
 
 body {
-  --body-color: var(--gray-500);
+  --body-color: var(--gray-800);
+  --color-light: var(--gray-500);
+  --color-lighter: var(--gray-200);
   --body-bg: var(--gray-200);
   --foreground: var(--gray-100);
+  --primary-color: var(--violet-400);
+  --accent: var(--violet-100);
+  --accent-light: var(--violet-200);
+  --accent-text: var(--violet-400);
 
   background-color: var(--body-bg);
-  color: #eee;
-  font-family: "Kumbh Sans", system-ui, sans-serif;
   color: var(--body-color);
+  font-family: "Kumbh Sans", system-ui, sans-serif;
+
+  &[data-theme="dark"] {
+    --body-color: var(--gray-100);
+    --color-lighter: var(--gray-700);
+    --body-bg: var(--gray-900);
+    --foreground: var(--gray-800);
+    --accent: var(--gray-700);
+    --accent-light: var(--gray-600);
+    --accent-text: var(--body-color);
+  }
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+
+  & > li {
+    padding-left: 1.5em;
+  }
+}
+
+ul li::marker {
+  color: var(--primary-color);
+}
+
+ol {
+  counter-reset: c;
+
+  li {
+    counter-increment: c;
+
+    &::marker {
+      content: counter(c);
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+  }
 }
