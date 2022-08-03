@@ -35,6 +35,7 @@
 .input-wrapper {
   border-radius: 0.375rem;
   display: flex;
+  flex-wrap: wrap;
   padding-inline: 0.375rem;
   background-color: var(--foreground);
 
@@ -161,7 +162,7 @@
   margin-block: 3.5rem 2rem;
   display: grid;
   gap: 3rem 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 
   @media only screen and (min-width: 45em) {
     margin-top: 4.375rem;
@@ -170,12 +171,14 @@
 }
 
 .card {
+  cursor: pointer;
   position: relative;
   background-color: var(--foreground);
   color: var(--color-light);
   border-radius: 0.375rem;
   padding: 2rem;
   padding-top: 3rem;
+  transition: box-shadow 150ms;
 
   &__logo {
     position: absolute;
@@ -192,13 +195,17 @@
   &__link {
     display: inline-block;
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-      color: var(--color-light);
-    }
   }
 
+  &:hover {
+    box-shadow: 0 6px 8px -2px rgb(0 0 0 / 0.1);
+  }
+
+  &:hover &__link {
+    text-decoration: underline;
+    color: var(--color-light);
+  }
+  
   &__location {
     margin-top: 2rem;
   }
@@ -238,7 +245,7 @@
   &__logo {
     width: 3.125rem;
     display: grid;
-    align-items: center;
+    place-items: center;
     padding: 0.3125rem;
     aspect-ratio: 1;
     border-radius: 0.9375rem;
@@ -252,10 +259,10 @@
       width: 8.75rem;
       border-radius: 0;
       padding: 1.875rem;
-    }
 
-    img {
-      width: 100%;
+      img {
+        width: 100%;
+      }
     }
   }
 }

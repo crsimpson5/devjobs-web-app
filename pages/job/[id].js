@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Header from "../../components/Header";
 
@@ -40,7 +39,14 @@ export default function Job() {
                 {job.company.split(" ").join("").toLowerCase() + ".com"}
               </p>
             </div>
-            <a href="#" className="button" data-type="light">Company Site</a>
+            <a
+              href="#"
+              className="button"
+              data-type="light"
+              onClick={(e) => e.preventDefault()}
+            >
+              Company Site
+            </a>
           </header>
 
           <main className="container-md color-light">
