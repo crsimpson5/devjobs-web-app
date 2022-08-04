@@ -48,47 +48,77 @@ export default function Home() {
 
       <Header />
 
-      <main>
-        <div className="input-wrapper | container">
-          <div>
-            <label htmlFor="" className="visually-hidden">
+      <main className="main-content">
+        <div className="search | container">
+          {/* Desktop */}
+          <div className="show-md flex-grow-2">
+            <label htmlFor="query" className="visually-hidden">
               Filter by title, companies, expertise
             </label>
             <input
+              id="query"
               className="text-input"
               type="text"
-              placeholder="Filter by title, companies, expertise…"
+              placeholder="Filter by title…"
               data-icon="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             />
           </div>
-          <div>
-            <label htmlFor="" className="visually-hidden">
+          <div className="show-md flex-grow-1">
+            <label htmlFor="location" className="visually-hidden">
               Filter by location
             </label>
             <input
+              id="location"
               className="text-input"
               type="text"
               placeholder="Filter by location…"
               data-icon="location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             />
           </div>
-          <div className="input-wrapper__options">
+          <div className="search__options | show-md">
             <div className="checkbox">
               <input
                 type="checkbox"
-                name="full-time-only"
                 id="full-time-only"
                 value={fullTimeOnly}
                 onChange={() => setFullTimeOnly((prev) => !prev)}
               />
-              <label htmlFor="full-time-only">Full Time Only</label>
+              <label htmlFor="full-time-only">Full Time</label>
             </div>
             <button className="button" onClick={handleSearch}>
               Search
+            </button>
+          </div>
+
+          {/* Mobile */}
+          <div className="hide-md flex-grow-1">
+            <label htmlFor="query-m" className="visually-hidden">
+              Filter by title, companies, expertise
+            </label>
+            <input
+              id="query-m"
+              className="text-input"
+              type="text"
+              placeholder="Filter by title…"
+              data-icon="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+          <div className="search__options | hide-md ">
+            <button className="button button--filter" data-type="naked">
+              <span className="visually-hidden">filter</span>
+              <img src="/images/icons/icon-filter.svg" alt="" />
+            </button>
+            <button className="button button--search" onClick={handleSearch}>
+              <span className="visually-hidden">search</span>
+              <img src="/images/icons/icon-search.svg" alt="" />
             </button>
           </div>
         </div>
@@ -98,6 +128,8 @@ export default function Home() {
             <Card data={job} key={job.id} />
           ))}
         </div>
+
+        <button className="button">Load More</button>
       </main>
     </>
   );
