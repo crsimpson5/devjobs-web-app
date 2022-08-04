@@ -72,3 +72,45 @@
   font-size: 0.875rem;
   line-height: 1.3;
 }
+
+// Show/hide
+
+.show-md {
+  @media only screen and (max-width: 44.999em) {
+    display: none !important;
+  }
+}
+
+.hide-md {
+  @media only screen and (min-width: 45em) {
+    display: none !important;
+  }
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.inline-flex {
+  display: inline-flex;
+  gap: var(--gap, 1rem);
+}
+.align-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
+}
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.flex-grow-2 {
+  flex-grow: 2;
+}
+.flex-grow-3 {
+  flex-grow: 3;
+}
