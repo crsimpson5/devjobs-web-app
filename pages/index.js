@@ -10,7 +10,9 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [location, setLocation] = useState("");
   const [fullTimeOnly, setFullTimeOnly] = useState(false);
+
   const [jobs, setJobs] = useState(data);
+  const [jobsLimit, setJobsLimit] = useState(12);
 
   function handleSearch() {
     let newQuery = query.trim().toLowerCase();
@@ -124,12 +126,24 @@ export default function Home() {
         </div>
 
         <div className="card-grid | container">
-          {jobs.map((job) => (
-            <Card data={job} key={job.id} />
-          ))}
+          {jobs
+            .filter((job, idx) => idx < jobsLimit)
+            .map((job) => (
+              <Card data={job} key={job.id} />
+            ))}
         </div>
 
-        <button className="button">Load More</button>
+        {/* Load more button */}
+        {jobs.length > jobsLimit && (
+          <div className="flex justify-center">
+            <button
+              className="button"
+              onClick={() => setJobsLimit((prev) => prev + 12)}
+            >
+              Load More
+            </button>
+          </div>
+        )}
       </main>
     </>
   );
