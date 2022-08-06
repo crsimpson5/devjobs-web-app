@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { NextSeo } from "next-seo";
 
 import Header from "../../components/Header";
 
@@ -21,6 +22,8 @@ export default function Job() {
         <title>devjobs</title>
         <meta name="description" content="Search for developer jobs" />
       </Head>
+
+      <NextSeo title={`devjobs | ${job?.position}`} />
 
       <Header />
 
