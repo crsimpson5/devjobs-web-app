@@ -8,6 +8,8 @@ export default function Header() {
 
   return (
     <header className="main-header">
+      <h1 className="visually-hidden">devjobs: search for developer jobs</h1>
+
       <div className="container flex justify-between">
         <Link href="/">
           <a>
@@ -21,6 +23,7 @@ export default function Header() {
             <img src="../images/icons/icon-sun.svg" alt="" />
           </div>
           <label htmlFor="theme-switch" className="switch">
+            <span className="visually-hidden">toggle theme</span>
             <input
               type="checkbox"
               id="theme-switch"
@@ -28,7 +31,7 @@ export default function Header() {
               checked={darkMode}
               onChange={() => updateDarkMode(!darkMode)}
             />
-            <div className="switch__slider"></div>
+            <span className="switch__slider"></span>
           </label>
           <div>
             <img src="../images/icons/icon-moon.svg" alt="" />
