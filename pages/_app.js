@@ -19,8 +19,7 @@ function MyApp({ Component, pageProps }) {
 
     // Set theme based on user preference
     if (!localStorage.getItem("darkMode")) {
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-      darkMode = true;
+      darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
 
     updateDarkMode(darkMode);
