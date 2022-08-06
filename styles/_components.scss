@@ -3,7 +3,7 @@
 .button {
   display: inline-block;
   text-decoration: none;
-  min-width: 7.75rem;
+  min-width: 8.75rem;
   padding: 1em 1.25rem;
   cursor: pointer;
   border: 0;
@@ -32,6 +32,10 @@
   &[data-type="naked"] {
     background-color: transparent;
   }
+  
+  &[data-size="small"] {
+    min-width: 7.625rem;
+  }
 
   &--filter,
   &--search {
@@ -42,10 +46,18 @@
     width: 3rem;
     aspect-ratio: 1;
     padding: 0.875rem;
+  }
 
+  &--search {
     > img {
       filter: brightness(100);
     }
+  }
+}
+
+body[data-theme="dark"] {
+  .button--filter > img {
+    filter: brightness(100);
   }
 }
 
@@ -184,10 +196,10 @@
 
 .main-content {
   position: relative;
-  margin-top: -0.875rem;
+  margin-block: -0.875rem 3.875rem;
 
   @media only screen and (min-width: 45em) {
-    margin-top: -2rem;
+    margin-block: -2rem 6.25rem;
   }
 }
 
@@ -200,7 +212,7 @@
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 
   @media only screen and (min-width: 45em) {
-    margin-top: 4.375rem;
+    margin-block: 4.375rem 3.5rem;
     gap: 4rem clamp(0.75rem, 2vw, 1.875rem);
   }
 }
@@ -250,6 +262,13 @@
 // Job Page
 
 .job {
+  position: relative;
+  margin-top: -0.875rem;
+
+  @media only screen and (min-width: 45em) {
+    margin-top: -2rem;
+  }
+
   &__header {
     display: flex;
     flex-direction: column;
@@ -272,6 +291,10 @@
 
       & > :last-child {
         margin-inline: auto 2.5rem;
+      }
+
+      .heading-2 {
+        font-size: 1.5rem;
       }
     }
   }
@@ -296,6 +319,63 @@
 
       img {
         width: 100%;
+      }
+    }
+  }
+
+  &__main {
+    margin-block: 1.5rem 4rem;
+    padding: 2.5rem 1.5rem;
+    border-radius: 0.375rem;
+    background-color: var(--foreground);
+
+    @media only screen and (min-width: 45em) {
+      padding: 3rem;
+    }
+  }
+
+  &__title {
+    display: grid;
+    gap: 3.25rem;
+
+    @media only screen and (min-width: 45em) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__description {
+    margin-top: 2rem;
+
+    > * + * {
+      margin-top: 2.5rem;
+
+      @media only screen and (min-width: 64em) {
+        margin-top: 3rem;
+      }
+    }
+  }
+
+  &__content {
+    margin-block: 1.75rem 2rem;
+
+    @media only screen and (min-width: 45em) {
+      margin-block: 1.75rem 1.5rem;
+    }
+  }
+
+  &__footer {
+    background-color: var(--foreground);
+    padding-block: 1.5rem;
+
+    &-content {
+      display: grid;
+
+      @media only screen and (min-width: 45em) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
     }
   }

@@ -20,6 +20,7 @@ body {
   background-color: var(--body-bg);
   color: var(--body-color);
   font-family: "Kumbh Sans", system-ui, sans-serif;
+  line-height: 1.625;
 
   &[data-theme="dark"] {
     --body-color: var(--gray-100);
@@ -38,6 +39,10 @@ ol {
 
   & > li {
     padding-left: 1.5em;
+  }
+
+  & > li:not(:first-child) {
+    margin-top: 0.75rem;
   }
 }
 

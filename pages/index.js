@@ -65,7 +65,7 @@ export default function Home() {
       <main className="main-content">
         <div className="search | container">
           {/* Desktop */}
-          <div className="show-md flex-grow-2">
+          <div className="show-md flex-grow-3">
             <label htmlFor="query" className="visually-hidden">
               Filter by title, companies, expertise
             </label>
@@ -73,7 +73,7 @@ export default function Home() {
               id="query"
               className="text-input"
               type="text"
-              placeholder="Filter by title…"
+              placeholder="Filter by title, companies, expertise…"
               data-icon="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -105,7 +105,7 @@ export default function Home() {
               />
               <label htmlFor="full-time-only">Full Time</label>
             </div>
-            <button className="button" onClick={handleSearch}>
+            <button className="button" onClick={handleSearch} data-size="small">
               Search
             </button>
           </div>
@@ -141,6 +141,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Mobile modal */}
         {modalOpen && (
           <div className="modal">
             <div className="modal__background" onClick={closeModal}></div>

@@ -24,7 +24,7 @@ export default function Job() {
 
       <Header />
 
-      <div className="main-content">
+      <div className="job">
         {job ? (
           <>
             <header className="job__header | container-md">
@@ -50,8 +50,8 @@ export default function Job() {
               </a>
             </header>
 
-            <main className="container-md color-light">
-              <div className="flex align-center justify-between">
+            <main className="job__main | container-md color-light">
+              <div className="job__title">
                 <div className="flow" style={{ "--flow-spacing": ".25rem" }}>
                   <p className="color-light">
                     {job.postedAt}{" "}
@@ -63,32 +63,41 @@ export default function Job() {
                 <button className="button">Apply Now</button>
               </div>
 
-              <div className="flow">
-                <p>{job.description}</p>
-                <h2 className="heading-2">Requirements</h2>
-                <p>{job.requirements.content}</p>
-                <ul className="flow" style={{ "--flow-spacing": ".75rem" }}>
-                  {job.requirements.items.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-                <h2 className="heading-2">What You Will Do</h2>
-                <p>{job.role.content}</p>
-                <ol className="flow" style={{ "--flow-spacing": ".75rem" }}>
-                  {job.role.items.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ol>
+              <div className="job__description">
+                <section>
+                  <h2 className="visually-hidden">job description</h2>
+                  <p>{job.description}</p>
+                </section>
+                <section>
+                  <h2 className="heading-2">Requirements</h2>
+                  <p className="job__content">{job.requirements.content}</p>
+                  <ul>
+                    {job.requirements.items.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="heading-2">What You Will Do</h2>
+                  <p className="job__content">{job.role.content}</p>
+                  <ol>
+                    {job.role.items.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ol>
+                </section>
               </div>
             </main>
 
             <footer>
-              <div className="">
-                <div>
-                  <p className="heading-2">{job.position}</p>
-                  <p>{job.company}</p>
+              <div className="job__footer">
+                <div className="job__footer-content | container-md">
+                  <div className="show-md">
+                    <p className="heading-2">{job.position}</p>
+                    <p>{job.company}</p>
+                  </div>
+                  <button className="button">Apply Now</button>
                 </div>
-                <button className="button">Apply Now</button>
               </div>
             </footer>
           </>
