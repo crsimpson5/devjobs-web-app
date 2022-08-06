@@ -147,6 +147,11 @@ body[data-theme="dark"] {
     height: 0;
   }
 
+  input:focus-visible ~ &__box {
+    outline: 1px solid white;
+    box-shadow: inset 0 0 0 2px black;
+  }
+
   &__box {
     width: 1.5rem;
     aspect-ratio: 1;
