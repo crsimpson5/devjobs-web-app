@@ -96,15 +96,16 @@ export default function Home() {
             />
           </div>
           <div className="search__options | show-md">
-            <div className="checkbox">
+            <label className="checkbox" htmlFor="full-time-only">
               <input
                 type="checkbox"
                 id="full-time-only"
                 checked={fullTimeOnly}
                 onChange={() => setFullTimeOnly((prev) => !prev)}
               />
-              <label htmlFor="full-time-only">Full Time</label>
-            </div>
+              <span className="checkbox__box"></span>
+              Full Time
+            </label>
             <button className="button" onClick={handleSearch} data-size="small">
               Search
             </button>
