@@ -10,6 +10,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [location, setLocation] = useState("");
   const [fullTimeOnly, setFullTimeOnly] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const [jobs, setJobs] = useState(data);
   const [jobsLimit, setJobsLimit] = useState(12);
@@ -38,7 +39,18 @@ export default function Home() {
       results = results.filter((job) => job.contract === "Full Time");
     }
 
+    closeModal();
     setJobs(results);
+  }
+
+  function openModal() {
+    setModalOpen(true);
+    document.body.classList.add("modal-open");
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+    document.body.classList.remove("modal-open");
   }
 
   return (
@@ -88,7 +100,7 @@ export default function Home() {
               <input
                 type="checkbox"
                 id="full-time-only"
-                value={fullTimeOnly}
+                checked={fullTimeOnly}
                 onChange={() => setFullTimeOnly((prev) => !prev)}
               />
               <label htmlFor="full-time-only">Full Time</label>
@@ -114,7 +126,11 @@ export default function Home() {
             />
           </div>
           <div className="search__options | hide-md ">
-            <button className="button button--filter" data-type="naked">
+            <button
+              className="button button--filter"
+              data-type="naked"
+              onClick={openModal}
+            >
               <span className="visually-hidden">filter</span>
               <img src="/images/icons/icon-filter.svg" alt="" />
             </button>
@@ -124,6 +140,41 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+        {modalOpen && (
+          <div className="modal">
+            <div className="modal__background" onClick={closeModal}></div>
+            <div className="modal__body container">
+              <label htmlFor="location-2" className="visually-hidden">
+                Filter by location
+              </label>
+              <input
+                id="location-2"
+                className="text-input"
+                type="text"
+                placeholder="Filter by location…"
+                data-icon="location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+              />
+              <div className="modal__bottom">
+                <div className="checkbox">
+                  <input
+                    type="checkbox"
+                    id="full-time-only-2"
+                    checked={fullTimeOnly}
+                    onChange={() => setFullTimeOnly((prev) => !prev)}
+                  />
+                  <label htmlFor="full-time-only-2">Full Time Only</label>
+                </div>
+                <button className="button" onClick={handleSearch}>
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="card-grid | container">
           {jobs
